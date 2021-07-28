@@ -1,9 +1,8 @@
-
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
-const common = require('./webpack.config.common')
+const common = require('./webpack.common')
 
 module.exports = merge(common, {
   // 模式
