@@ -2,31 +2,31 @@
   "name": "webpack-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --open",
-    "build": "webpack"
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "sass": "^1.36.0",
     "sass-loader": "^12.1.0",
+    "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.2.1",
-    "ts-loader": "^9.2.4",
-    "typescript": "^4.3.5",
-    "webpack": "^5.46.0",
+    "thread-loader": "^3.0.4",
+    "webpack": "^5.47.0",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@types/react": "^17.0.15",
-    "@types/react-dom": "^17.0.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "sass": "^1.36.0"
+    "lodash": "^4.17.21"
   }
 }
