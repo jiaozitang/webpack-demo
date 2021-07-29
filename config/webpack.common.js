@@ -1,5 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const { resolveApp } = require('./paths');
+
+console.log(__dirname)
 
 module.exports = {
   // 入口
@@ -11,6 +14,28 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'release_v0',
     }),
+    // 进度条
+    new ProgressBarPlugin({
+      format:'  :msg [:bar] :percent (:elapsed s)'
+    }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        include: [
+          resolveApp('src'),
+        ],
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        include: [
+          resolveApp('src'),
+        ],
+        type: 'asset/resource',
+      },
+    ],
+  },
 }
 
