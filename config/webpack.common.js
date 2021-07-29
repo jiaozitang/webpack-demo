@@ -42,6 +42,25 @@ module.exports = {
          ],
         type: 'asset/resource',
       },
+      {
+        test: /\.m?js$/,
+        include: [
+          resolveApp('src'),
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+
+            // 引入 Babel runtime 作为一个独立模块，来避免重复引入
+            plugins: ['@babel/plugin-transform-runtime'],
+
+            // 开启缓存
+            cacheDirectory: true,
+          },
+
+        }
+      }
     ],
   },
 }
