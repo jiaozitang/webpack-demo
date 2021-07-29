@@ -35,6 +35,13 @@ module.exports = {
         ],
         type: 'asset/resource',
       },
+      {
+        test: /.(woff|woff2|eot|ttf|otf)$/i,
+        include: [
+           resolveApp('src'),
+         ],
+        type: 'asset/resource',
+      },
     ],
   },
 }

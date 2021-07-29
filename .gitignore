@@ -3,3 +3,4 @@ package-lock.json
 .history
 dist
 yarn.lock
+.DS_Store
