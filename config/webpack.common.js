@@ -9,6 +9,14 @@ module.exports = {
   entry: {
     index: './src/index.js',
   },
+  // 输出
+  output: {
+    filename: '[name].bundle.js' || '[name].[contenthash].bundle.js',
+    path: paths.appDist,
+    publicPath: paths.appPublic,
+    // 编译前清除目录
+    clean: true
+  },
   plugins: [
     // 生成html，自动引入所有bundle
     new HtmlWebpackPlugin({
@@ -26,7 +34,7 @@ module.exports = {
         include: [
           paths.appSrc,
         ],
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

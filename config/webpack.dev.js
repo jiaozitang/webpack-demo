@@ -11,12 +11,5 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
   },
-  // 输出
-  output: {
-    filename: '[name].bundle.js',
-    path: paths.appDist,
-    publicPath: paths.appPublic,
-    // 编译前清除目录
-    clean: true
-  },
+  
 })
