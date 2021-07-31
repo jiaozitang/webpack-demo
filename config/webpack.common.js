@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const { resolveApp } = require('./paths');
+const paths = require('./paths');
 
 console.log(__dirname)
 
@@ -24,28 +24,28 @@ module.exports = {
       {
         test: /\.css$/i,
         include: [
-          resolveApp('src'),
+          paths.appSrc,
         ],
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         include: [
-          resolveApp('src'),
+          paths.appSrc,
         ],
         type: 'asset/resource',
       },
       {
         test: /.(woff|woff2|eot|ttf|otf)$/i,
         include: [
-           resolveApp('src'),
+           paths.appSrc,
          ],
         type: 'asset/resource',
       },
       {
         test: /\.m?js$/,
         include: [
-          resolveApp('src'),
+          paths.appSrc,
         ],
         use: {
           loader: 'babel-loader',

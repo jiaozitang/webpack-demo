@@ -1,6 +1,5 @@
-const path = require('path');
 const { merge } = require('webpack-merge');
-const { resolveApp } = require('./paths');
+const paths = require('./paths');
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
@@ -15,7 +14,8 @@ module.exports = merge(common, {
   // 输出
   output: {
     filename: '[name].bundle.js',
-    path: resolveApp('dist'),
+    path: paths.appDist,
+    publicPath: paths.appPublic,
     // 编译前清除目录
     clean: true
   },
