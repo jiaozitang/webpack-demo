@@ -30,11 +30,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        include: [
-          paths.appSrc,
+        test: /\.s[ac]ss$/i,
+        include: paths.appSrc,
+        use: [
+          MiniCssExtractPlugin.loader,
+          // 将 JS 字符串生成为 style 节点
+          'style-loader',
+          // 将 CSS 转化成 CommonJS 模块
+          'css-loader',
+          // 将 Sass 编译成 CSS
+          'sass-loader',
         ],
-        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
