@@ -1,6 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const paths = require('./paths');
+
+const ctx = {
+  isEnvDevelopment: process.env.NODE_ENV === 'development',
+  isEnvProduction: process.env.NODE_ENV === 'production',
+}
 
 module.exports = {
   // 入口
@@ -9,7 +17,8 @@ module.exports = {
   },
   // 输出
   output: {
-    filename: '[name].bundle.js' || '[name].[contenthash].bundle.js',
+    // 仅在生产环境添加 hash
+    filename: ctx.isEnvProduction ? '[name].[contenthash].bundle.js' : '[name].bundle.js',
     path: paths.appDist,
     // publicPath: paths.appPublic,
     // 编译前清除目录
@@ -21,12 +30,16 @@ module.exports = {
   plugins: [
     // 生成html，自动引入所有bundle
     new HtmlWebpackPlugin({
-      title: 'release_v0',
+      title: 'release_v1',
     }),
     // 进度条
     new ProgressBarPlugin({
       format:'  :msg [:bar] :percent (:elapsed s)'
     }),
+    // 打包体积分析
+    new BundleAnalyzerPlugin(),
+    // 提取 CSS
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
@@ -50,6 +63,7 @@ module.exports = {
         use: [
           // 将 JS 字符串生成为 style 节点
           'style-loader',
+          MiniCssExtractPlugin.loader,
           // 将 CSS 转化成 CommonJS 模块
           {
             loader: 'css-loader',
