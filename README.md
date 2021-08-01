@@ -1,6 +1,6 @@
 # webpack-demo0
 
-本 demo 支持 Js 模块化开发。
+一起配置一个基础的 Webpack，本 demo 支持 Js 模块化开发。
 
 支持以下功能：
 
