@@ -93,19 +93,19 @@ module.exports = {
         exclude: /node_modules/,
         
       },
-      // {
-      //   test: /\.(js|ts|jsx|tsx)$/,
-      //   include: paths.appSrc,
-      //   use: [
-      //     {
-      //       loader: 'esbuild-loader',
-      //       options: {
-      //         loader: 'tsx',
-      //         target: 'es2015',
-      //       },
-      //     }
-      //   ]
-      // }
+      {
+        test: /\.(js|ts|jsx|tsx)$/,
+        include: paths.appSrc,
+        use: [
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'tsx',
+              target: 'es2015',
+            },
+          }
+        ]
+      }
     ],
   },
 }
