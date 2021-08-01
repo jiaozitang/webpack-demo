@@ -7,7 +7,7 @@ console.log(123123123, paths.appTsConfig)
 module.exports = {
   // 入口
   entry: {
-    index: './src/index.js',
+    index: './src/index.tsx',
   },
   // 输出
   output: {
@@ -18,7 +18,7 @@ module.exports = {
     clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.jsx', '.ts', '.js'],
   },
   plugins: [
     // 生成html，自动引入所有bundle
@@ -30,6 +30,10 @@ module.exports = {
       format:'  :msg [:bar] :percent (:elapsed s)'
     }),
   ],
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  },
   module: {
     rules: [
       {

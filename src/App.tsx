@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Hello from './hello.jsx';
+import Hello from './hello';
 
 export default function App () {
     return (
