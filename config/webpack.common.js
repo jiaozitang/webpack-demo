@@ -2,8 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const paths = require('./paths');
 
-console.log(123123123, paths.appTsConfig)
-
 module.exports = {
   // 入口
   entry: {
@@ -30,10 +28,6 @@ module.exports = {
       format:'  :msg [:bar] :percent (:elapsed s)'
     }),
   ],
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
-  },
   module: {
     rules: [
       {
@@ -85,17 +79,6 @@ module.exports = {
           // 将 Sass 编译成 CSS
           'sass-loader',
         ],
-      },
-      {
-        test: /\.(tsx|ts)$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            configFile: paths.appTsConfig
-  　　　　　}
-        },
-        exclude: /node_modules/,
-        
       },
       {
         test: /\.(js|ts|jsx|tsx)$/,
