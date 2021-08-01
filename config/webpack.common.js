@@ -21,7 +21,7 @@ module.exports = {
   plugins: [
     // 生成html，自动引入所有bundle
     new HtmlWebpackPlugin({
-      title: 'release_v0',
+      title: 'release_v1',
     }),
     // 进度条
     new ProgressBarPlugin({
