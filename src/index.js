@@ -1,8 +1,8 @@
 
 import ReactDOM from 'react-dom';
 import React from 'react'
-import { getData } from './async.js';
-import App from './App.jsx';
+import { getData } from '@/async';
+import App from '@/App';
 
 console.log('index')
 

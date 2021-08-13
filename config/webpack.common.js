@@ -1,6 +1,6 @@
+const chalk = require('chalk')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const paths = require('./paths');
@@ -9,6 +9,19 @@ const ctx = {
   isEnvDevelopment: process.env.NODE_ENV === 'development',
   isEnvProduction: process.env.NODE_ENV === 'production',
 }
+
+const threadLoader = require('thread-loader');
+
+threadLoader.warmup(
+  {
+    // 池选项，例如传递给 loader 选项
+    // 必须匹配 loader 选项才能启动正确的池
+  },
+  [
+    'sass-loader',
+  ]
+);
+
 
 module.exports = {
   // 入口
@@ -25,7 +38,15 @@ module.exports = {
     clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.jsx', '.ts', '.js'],
+    alias: {
+      '@': paths.appSrc,
+    },
+    extensions: ['.tsx', '.js'],
+    modules: [
+      'node_modules',
+      paths.appSrc,
+    ],
+    symlinks: false,
   },
   plugins: [
     // 生成html，自动引入所有bundle
@@ -34,27 +55,31 @@ module.exports = {
     }),
     // 进度条
     new ProgressBarPlugin({
-      format:'  :msg [:bar] :percent (:elapsed s)'
-    }),
-    // 打包体积分析
-    new BundleAnalyzerPlugin(),
+      format: `  :msg [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`
+    })
     // 提取 CSS
-    new MiniCssExtractPlugin()
+    // new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
+      /* {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        include: paths.appSrc,
+        loader: require.resolve('url-loader'),
+      },
+      {
+        test: /.(woff|woff2|eot|ttf|otf)$/i,
+        include: paths.appSrc,
+        loader: require.resolve('url-loader'),
+      },  */
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        include: [
-          paths.appSrc,
-        ],
+        include: paths.appSrc,
         type: 'asset/resource',
       },
       {
         test: /.(woff|woff2|eot|ttf|otf)$/i,
-        include: [
-           paths.appSrc,
-         ],
+        include: paths.appSrc,
         type: 'asset/resource',
       },
       {
@@ -63,7 +88,7 @@ module.exports = {
         use: [
           // 将 JS 字符串生成为 style 节点
           'style-loader',
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
           // 将 CSS 转化成 CommonJS 模块
           {
             loader: 'css-loader',
@@ -90,6 +115,12 @@ module.exports = {
               },
             },
           },
+          {
+            loader: 'thread-loader',
+            options: {
+              workerParallelJobs: 2
+            }
+          },
           // 将 Sass 编译成 CSS
           'sass-loader',
         ],
@@ -109,5 +140,8 @@ module.exports = {
       }
     ],
   },
+  // cache: {
+  //   type: 'filesystem', // 使用文件缓存
+  // },
 }
 
