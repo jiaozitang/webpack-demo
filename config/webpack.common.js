@@ -10,6 +10,11 @@ const ctx = {
   isEnvProduction: process.env.NODE_ENV === 'production',
 }
 
+const {
+  isEnvDevelopment,
+  isEnvProduction
+} = ctx
+
 const threadLoader = require('thread-loader');
 
 threadLoader.warmup(
@@ -56,9 +61,7 @@ module.exports = {
     // 进度条
     new ProgressBarPlugin({
       format: `  :msg [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`
-    })
-    // 提取 CSS
-    // new MiniCssExtractPlugin()
+    }),
   ],
   module: {
     rules: [
@@ -88,7 +91,7 @@ module.exports = {
         use: [
           // 将 JS 字符串生成为 style 节点
           'style-loader',
-          // MiniCssExtractPlugin.loader,
+          isEnvProduction && MiniCssExtractPlugin.loader, // 仅生产环境
           // 将 CSS 转化成 CommonJS 模块
           {
             loader: 'css-loader',
@@ -123,7 +126,7 @@ module.exports = {
           },
           // 将 Sass 编译成 CSS
           'sass-loader',
-        ],
+        ].filter(Boolean),
       },
       {
         test: /\.(js|ts|jsx|tsx)$/,

@@ -1,0 +1,854 @@
+.a {
+  :global(#root) {
+    width: 100%;
+    height: 100%;
+  
+    // TODO LayoutOrigin 中需要去除最小宽高度
+    // min-width: 1024px;
+    // min-height: 720px;
+  
+    overflow: auto;
+  }
+  
+  :global {
+    input[type=number] {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+      }
+      -moz-appearance: textfield;
+    }
+  }
+  .btn {
+    margin: 5px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background: #fff !important;
+    padding: 0 24px !important;
+    box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.06);
+  
+    :global(.ant-input-affix-wrapper) {
+      background-color: #f4f7ff;
+      border-radius: 16px;
+      &:hover {
+        background-color: #f4f7ff;
+      }
+    }
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    cursor: pointer;
+    width: 184px;
+    height: 27px;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    margin-left: 25px;
+    font-size: 18px;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    font-size: 12px;
+    cursor: pointer;
+  
+  
+  }
+  
+  .info {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    font-size: 14px;
+  }
+  
+  .userIcon {
+    font-size: 20px;
+  }
+  
+  .loginBtn {
+    margin-left: 4px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .nickname {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .arrow {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  
+  .menu {
+    :global(.ant-dropdown-menu) {
+      min-width: 160px;
+      border-radius: 10px;
+    }
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoutIcon {
+    font-size: 14px !important;
+  }
+  
+  .wrapper {
+  
+    :global {
+      .ant-modal-body {
+        padding: 0 !important;
+      }
+    }
+  }
+  
+  .table {
+    margin: 12px 0;
+    min-height: 520px;
+  }
+  
+  .hdTips {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+    margin-left: 10px;
+  }
+  
+  .wrap {
+    display: flex;
+    align-items: center;
+    height: 120px;
+  
+    border: 1px solid #eee;
+  }
+  
+  .image {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+  
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  .info {
+    .name {
+      line-height: 29px;
+  
+      .val {
+        font-size: 16px;
+        font-weight: bold;
+      }
+  
+      .id {
+        color: #666;
+      }
+    }
+  
+    .desc {
+      max-width: 28em;
+      color: #666;
+      line-height: 27px;
+    }
+  }
+  
+  @mixin btn {
+    width: 240px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 24px;
+    display: block;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .loginModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    :global(.ant-modal) {
+      top: 0;
+    }
+    :global(.ant-modal-content) {
+      padding: 0 !important;
+      overflow: hidden;
+      background-color: transparent;
+      box-shadow: 0 10px 30px 0 rgba(35, 35, 33, 0.2);
+    }
+    :global(.ant-modal-body) {
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    :global(.site-svg) {
+      display: inline;
+    }
+    :global(.ico-login__close svg) {
+      width: 19px;
+      height: 18px;
+    }
+    :global(.ico-ling-logo-black) {
+      position: absolute;
+      left: 48px;
+      top: 49px;
+      width: 117px;
+      height: 51px;
+    }
+  }
+  
+  .bg {
+    font-size: 100px;
+  }
+  
+  .content {
+    width: 640px;
+    height: 320px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+    font-size: 18px;
+  
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  
+  .btnGroup {
+    position: absolute;
+    top: 100px;
+    right: 56px;
+  }
+  
+  .jdBtn {
+    @include btn;
+  
+    background: #fff;
+    border: 1px solid #f1f2f7;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  
+  
+  }
+  
+  .erpBtn {
+    @include btn;
+  
+    border: 1px solid #f1f2f7;
+    color: #fff;
+  
+    &:hover {
+      background: #fff;
+    }
+  }
+  
+}
+
+.b {
+  :global(#root) {
+    width: 100%;
+    height: 100%;
+  
+    // TODO LayoutOrigin 中需要去除最小宽高度
+    // min-width: 1024px;
+    // min-height: 720px;
+  
+    overflow: auto;
+  }
+  
+  :global {
+    input[type=number] {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+      }
+      -moz-appearance: textfield;
+    }
+  }
+  .btn {
+    margin: 5px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background: #fff !important;
+    padding: 0 24px !important;
+    box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.06);
+  
+    :global(.ant-input-affix-wrapper) {
+      background-color: #f4f7ff;
+      border-radius: 16px;
+      &:hover {
+        background-color: #f4f7ff;
+      }
+    }
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    cursor: pointer;
+    width: 184px;
+    height: 27px;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    margin-left: 25px;
+    font-size: 18px;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    font-size: 12px;
+    cursor: pointer;
+  
+  
+  }
+  
+  .info {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    font-size: 14px;
+  }
+  
+  .userIcon {
+    font-size: 20px;
+  }
+  
+  .loginBtn {
+    margin-left: 4px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .nickname {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .arrow {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  
+  .menu {
+    :global(.ant-dropdown-menu) {
+      min-width: 160px;
+      border-radius: 10px;
+    }
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoutIcon {
+    font-size: 14px !important;
+  }
+  
+  .wrapper {
+  
+    :global {
+      .ant-modal-body {
+        padding: 0 !important;
+      }
+    }
+  }
+  
+  .table {
+    margin: 12px 0;
+    min-height: 520px;
+  }
+  
+  .hdTips {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+    margin-left: 10px;
+  }
+  
+  .wrap {
+    display: flex;
+    align-items: center;
+    height: 120px;
+  
+    border: 1px solid #eee;
+  }
+  
+  .image {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+  
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  .info {
+    .name {
+      line-height: 29px;
+  
+      .val {
+        font-size: 16px;
+        font-weight: bold;
+      }
+  
+      .id {
+        color: #666;
+      }
+    }
+  
+    .desc {
+      max-width: 28em;
+      color: #666;
+      line-height: 27px;
+    }
+  }
+  
+  @mixin btn {
+    width: 240px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 24px;
+    display: block;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .loginModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    :global(.ant-modal) {
+      top: 0;
+    }
+    :global(.ant-modal-content) {
+      padding: 0 !important;
+      overflow: hidden;
+      background-color: transparent;
+      box-shadow: 0 10px 30px 0 rgba(35, 35, 33, 0.2);
+    }
+    :global(.ant-modal-body) {
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    :global(.site-svg) {
+      display: inline;
+    }
+    :global(.ico-login__close svg) {
+      width: 19px;
+      height: 18px;
+    }
+    :global(.ico-ling-logo-black) {
+      position: absolute;
+      left: 48px;
+      top: 49px;
+      width: 117px;
+      height: 51px;
+    }
+  }
+  
+  .bg {
+    font-size: 100px;
+  }
+  
+  .content {
+    width: 640px;
+    height: 320px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+    font-size: 18px;
+  
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  
+  .btnGroup {
+    position: absolute;
+    top: 100px;
+    right: 56px;
+  }
+  
+  .jdBtn {
+    @include btn;
+  
+    background: #fff;
+    border: 1px solid #f1f2f7;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  
+  
+  }
+  
+  .erpBtn {
+    @include btn;
+  
+    border: 1px solid #f1f2f7;
+    color: #fff;
+  
+    &:hover {
+      background: #fff;
+    }
+  }
+  
+}
+
+.c {
+  :global(#root) {
+    width: 100%;
+    height: 100%;
+  
+    // TODO LayoutOrigin 中需要去除最小宽高度
+    // min-width: 1024px;
+    // min-height: 720px;
+  
+    overflow: auto;
+  }
+  
+  :global {
+    input[type=number] {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+      }
+      -moz-appearance: textfield;
+    }
+  }
+  .btn {
+    margin: 5px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background: #fff !important;
+    padding: 0 24px !important;
+    box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.06);
+  
+    :global(.ant-input-affix-wrapper) {
+      background-color: #f4f7ff;
+      border-radius: 16px;
+      &:hover {
+        background-color: #f4f7ff;
+      }
+    }
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    cursor: pointer;
+    width: 184px;
+    height: 27px;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    margin-left: 25px;
+    font-size: 18px;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    font-size: 12px;
+    cursor: pointer;
+  
+  
+  }
+  
+  .info {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    font-size: 14px;
+  }
+  
+  .userIcon {
+    font-size: 20px;
+  }
+  
+  .loginBtn {
+    margin-left: 4px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .nickname {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .arrow {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  
+  .menu {
+    :global(.ant-dropdown-menu) {
+      min-width: 160px;
+      border-radius: 10px;
+    }
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoutIcon {
+    font-size: 14px !important;
+  }
+  
+  .wrapper {
+  
+    :global {
+      .ant-modal-body {
+        padding: 0 !important;
+      }
+    }
+  }
+  
+  .table {
+    margin: 12px 0;
+    min-height: 520px;
+  }
+  
+  .hdTips {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+    margin-left: 10px;
+  }
+  
+  .wrap {
+    display: flex;
+    align-items: center;
+    height: 120px;
+  
+    border: 1px solid #eee;
+  }
+  
+  .image {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+  
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  .info {
+    .name {
+      line-height: 29px;
+  
+      .val {
+        font-size: 16px;
+        font-weight: bold;
+      }
+  
+      .id {
+        color: #666;
+      }
+    }
+  
+    .desc {
+      max-width: 28em;
+      color: #666;
+      line-height: 27px;
+    }
+  }
+  
+  @mixin btn {
+    width: 240px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 24px;
+    display: block;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .loginModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    :global(.ant-modal) {
+      top: 0;
+    }
+    :global(.ant-modal-content) {
+      padding: 0 !important;
+      overflow: hidden;
+      background-color: transparent;
+      box-shadow: 0 10px 30px 0 rgba(35, 35, 33, 0.2);
+    }
+    :global(.ant-modal-body) {
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    :global(.site-svg) {
+      display: inline;
+    }
+    :global(.ico-login__close svg) {
+      width: 19px;
+      height: 18px;
+    }
+    :global(.ico-ling-logo-black) {
+      position: absolute;
+      left: 48px;
+      top: 49px;
+      width: 117px;
+      height: 51px;
+    }
+  }
+  
+  .bg {
+    font-size: 100px;
+  }
+  
+  .content {
+    width: 640px;
+    height: 320px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+    font-size: 18px;
+  
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  
+  .btnGroup {
+    position: absolute;
+    top: 100px;
+    right: 56px;
+  }
+  
+  .jdBtn {
+    @include btn;
+  
+    background: #fff;
+    border: 1px solid #f1f2f7;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  
+  
+  }
+  
+  .erpBtn {
+    @include btn;
+  
+    border: 1px solid #f1f2f7;
+    color: #fff;
+  
+    &:hover {
+      background: #fff;
+    }
+  }
+  
+}
