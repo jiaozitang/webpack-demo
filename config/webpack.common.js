@@ -15,17 +15,19 @@ const {
   isEnvProduction
 } = ctx
 
-const threadLoader = require('thread-loader');
 
-threadLoader.warmup(
-  {
-    // 池选项，例如传递给 loader 选项
-    // 必须匹配 loader 选项才能启动正确的池
-  },
-  [
-    'sass-loader',
-  ]
-);
+// 小型项目无需 thread-loader，因此注释了
+// const threadLoader = require('thread-loader');
+
+// threadLoader.warmup(
+//   {
+//     // 池选项，例如传递给 loader 选项
+//     // 必须匹配 loader 选项才能启动正确的池
+//   },
+//   [
+//     'sass-loader',
+//   ]
+// );
 
 
 module.exports = {
@@ -38,7 +40,6 @@ module.exports = {
     // 仅在生产环境添加 hash
     filename: ctx.isEnvProduction ? '[name].[contenthash].bundle.js' : '[name].bundle.js',
     path: paths.appDist,
-    // publicPath: paths.appPublic,
     // 编译前清除目录
     clean: true,
     // publicPath: ctx.isEnvProduction ? 'https://xxx.com' : '', 关闭该 CDN 配置，因为示例项目，无 CDN 服务。
@@ -66,16 +67,6 @@ module.exports = {
   ],
   module: {
     rules: [
-      /* {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        include: paths.appSrc,
-        loader: require.resolve('url-loader'),
-      },
-      {
-        test: /.(woff|woff2|eot|ttf|otf)$/i,
-        include: paths.appSrc,
-        loader: require.resolve('url-loader'),
-      },  */
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         include: paths.appSrc,
@@ -119,12 +110,12 @@ module.exports = {
               },
             },
           },
-          {
-            loader: 'thread-loader',
-            options: {
-              workerParallelJobs: 2
-            }
-          },
+          // {
+          //   loader: 'thread-loader',
+          //   options: {
+          //     workerParallelJobs: 2
+          //   }
+          // },
           // 将 Sass 编译成 CSS
           'sass-loader',
         ].filter(Boolean),
@@ -144,8 +135,8 @@ module.exports = {
       }
     ],
   },
-  // cache: {
-  //   type: 'filesystem', // 使用文件缓存
-  // },
+  cache: {
+    type: 'filesystem', // 使用文件缓存
+  },
 }
 

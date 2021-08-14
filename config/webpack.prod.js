@@ -13,7 +13,7 @@ module.exports = merge(common, {
   mode: 'production',
   plugins: [
     // 打包体积分析
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     // 提取 CSS
     new MiniCssExtractPlugin({
       filename: "[hash].[name].css",
