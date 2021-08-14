@@ -40,7 +40,8 @@ module.exports = {
     path: paths.appDist,
     // publicPath: paths.appPublic,
     // 编译前清除目录
-    clean: true
+    clean: true,
+    // publicPath: ctx.isEnvProduction ? 'https://xxx.com' : '', 关闭该 CDN 配置，因为示例项目，无 CDN 服务。
   },
   resolve: {
     alias: {
