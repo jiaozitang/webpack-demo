@@ -1,6 +1,6 @@
 import React from 'react'
-import Hello from '@/Hello';
-import Print from './print';
+import Hello from '@/Hello.tsx';
+import Print from './print.js';
 import '@/assets/css/test.module.scss'
 
 function testTreeShaking () {
@@ -12,7 +12,7 @@ function testTreeShaking () {
 export default function App () {
     return (
         <div>
-            hello react 111
+            hello react 11111
             <Hello />
             <button onClick={() => import('lodash')}>加载lodash</button>
             <button onClick={()=> Print('Hello webpack!')}>print</button>
