@@ -6,7 +6,7 @@ const common = require('./webpack.common')
 
 const smp = new SpeedMeasurePlugin();
 
-const isNeedSpeed = true
+const isNeedSpeed = false
 
 const config = merge(common, {
   // 模式
