@@ -12,7 +12,7 @@ function testTreeShaking () {
 export default function App () {
     return (
         <div>
-            hello react 1111
+            hello react 
             <Hello />
             <button onClick={() => import('lodash')}>加载lodash</button>
             <button onClick={()=> Print('Hello webpack!')}>print</button>

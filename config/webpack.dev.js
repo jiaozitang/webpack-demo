@@ -6,7 +6,7 @@ const common = require('./webpack.common')
 
 const smp = new SpeedMeasurePlugin();
 
-const isNeedSpeed = true
+const isNeedSpeed = false
 
 const config = merge(common, {
   // 模式
@@ -15,7 +15,8 @@ const config = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   // 开发模式，自动更新改动
   devServer: {
-    contentBase: './dist',
+    port: 6060,
+    // contentBase: './dist',
     hot: true, // 热更新
   },
   plugins: [
